@@ -6,7 +6,7 @@ st.set_page_config(page_title="Github Dashboard", page_icon=":bar_chart:", layou
 
 st.markdown(
   """
-  <style>
+    <style>
         h1 {
             font-size: 20px;
             color: #4CAF50;
@@ -42,7 +42,7 @@ fig_top_languages = px.bar(
   x = top_languages.index,
   y = top_languages.values,
   labels = {'primary_language': 'Primary Language', 'y': 'Count of repositories'},
-  title = "Top 30 Primary Languages"
+  title = "Top 30 all time popular languages"
 )
 
 # Stars Count vs repo percentiles
@@ -68,7 +68,7 @@ fig_quantile_stars = px.bar(
   quantile_df,
   x = 'Percentile',
   y = 'Stars Count',
-  title = 'Total Stars by Repository Percentiles',
+  title = 'Total Stars by Repository Percentiles shows<br> that most of the stars belong to the top 25 percentile<br> of the repos',
   text = "Stars Count"
 )
 
@@ -81,8 +81,8 @@ fig_repo_year = px.bar(
   repo_count_by_year,
   x = 'year',
   y = 'count',
-  labels = {'year': 'Year', 'count': 'Count of Repositories'},
-  title = 'Repository Count by Year',
+  labels = {'year': 'Year', 'count': 'Repository Count'},
+  title = 'Repository Count by Year showing a<br> spike during covid-19',
 )
 
 # Total number of stars by year
@@ -93,7 +93,7 @@ fig_stars_year = px.bar(
   x = 'year',
   y = 'stars_count',
   labels = {'year': 'Year', 'stars_count': 'Total Stars'},
-  title = 'Total Stars by Year'
+  title = 'Total Stars by Year indicates that 2016 saw<br> an increase in the activity of people'
 )
 
 left_column1, left_column2, right_column1, right_column2 = st.columns(4)
@@ -120,7 +120,7 @@ fig_forks_language = px.bar(
   y = 'forks_count',
   color='category',
   labels = {'primary_language': 'Primary Language', 'forks_count': 'Total Forks', 'category': '<b>Category</b>'},
-  title = 'Top 10 and Bottom 10 Total Forks by Primary Language'
+  title = 'Top 10 and Bottom 10 Total Forks by Primary<br> Language showing some language have grown very old'
 )
 
 # Pull requests vs primary language
@@ -157,7 +157,7 @@ fig_commit_year = px.bar(
   x = 'year',
   y = 'commit_count',
   labels = {'commit_count': 'Commit Count', 'year': 'Year'},
-  title = 'Commit Count by Year',
+  title = 'Commit Count by Year showing a peak during covid<br> which shows people putting in efforts during WHF',
 )
 
 top_5_languages = df['primary_language'].value_counts().head(5).index
@@ -173,7 +173,7 @@ fig_repo_count = px.bar(
     y='repo_count',
     color='primary_language',
     labels={'year': 'Year', 'repo_count': 'Repository Count', 'primary_language': 'Primary Language'},
-    title='Repository Count per Top 5 Languages by Year',
+    title='Repository Count per Top 5 Languages by Year showing<br> a neck to neck battle between Python and Javascript',
     barmode='stack'
 )
 
@@ -186,12 +186,12 @@ fig_commit_count = px.bar(
     y='commit_count',
     color='primary_language',
     labels={'year': 'Year', 'commit_count': 'Commit Count', 'primary_language': 'Primary Language'},
-    title='Commit Count per Top 5 Languages by Year',
+    title='Commit Count per Top 5 Languages by Year<br> showing even though C++ and Java are not<br> at the top of repo counts, people are still<br> contributing to legacy repos',
     barmode='stack'
 )
 
 left_column1, left_column2, right_column1, right_column2 = st.columns(4)
-left_column1.plotly_chart(fig_stars_language, use_container_width=True)
+left_column1.plotly_chart(fig_forks_language, use_container_width=True)
 left_column2.plotly_chart(fig_commit_year, use_container_width=True)
 right_column1.plotly_chart(fig_repo_count, use_container_width=True)
 right_column2.plotly_chart(fig_commit_count, use_container_width=True)
