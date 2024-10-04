@@ -68,7 +68,7 @@ fig_quantile_stars = px.bar(
   quantile_df,
   x = 'Percentile',
   y = 'Stars Count',
-  title = 'Total Stars by Repository Percentiles shows<br> that most of the stars belong to the top 25 percentile<br> of the repos',
+  title = 'Total Stars by Repository Percentiles shows<br> that most of the stars belong to the<br> top 25 percentile of the repos',
   text = "Stars Count"
 )
 
@@ -120,7 +120,7 @@ fig_forks_language = px.bar(
   y = 'forks_count',
   color='category',
   labels = {'primary_language': 'Primary Language', 'forks_count': 'Total Forks', 'category': '<b>Category</b>'},
-  title = 'Top 10 and Bottom 10 Total Forks by Primary<br> Language showing some language have grown very old'
+  title = 'Top 10 and Bottom 10 Total Forks by<br> Primary Language showing some language have<br> grown very old'
 )
 
 # Pull requests vs primary language
@@ -157,7 +157,7 @@ fig_commit_year = px.bar(
   x = 'year',
   y = 'commit_count',
   labels = {'commit_count': 'Commit Count', 'year': 'Year'},
-  title = 'Commit Count by Year showing a peak during covid<br> which shows people putting in efforts during WHF',
+  title = 'Commit Count by Year showing a peak<br> during covid which shows people putting in efforts<br> during WHF',
 )
 
 top_5_languages = df['primary_language'].value_counts().head(5).index
@@ -173,7 +173,7 @@ fig_repo_count = px.bar(
     y='repo_count',
     color='primary_language',
     labels={'year': 'Year', 'repo_count': 'Repository Count', 'primary_language': 'Primary Language'},
-    title='Repository Count per Top 5 Languages by Year showing<br> a neck to neck battle between Python and Javascript',
+    title='Repository Count per Top 5 Languages by<br> Year showing a neck to neck battle between<br> Python and Javascript',
     barmode='stack'
 )
 
